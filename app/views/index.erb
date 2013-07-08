@@ -1,9 +1,12 @@
 <div class="container">
-  <% if @tweets %>
-    <% @tweets.each do |tweet| %>
-      <%= tweet.text %><hr>
-    <% end %>
-  <% else %>
-    enter in the url for now
-  <% end %>
+    <%= erb :_loader %>
 </div>
+
+ <script>
+  function onSuccess(){
+    $('.container').html("<% @user.tweets.each do |tweet| %><%= tweet.text %><hr><% end %>");
+  };
+  $(document).ready(function() {
+    $.post('/get_tweets', {user_id: <%= @user.id if @user%>}, onSuccess);
+  });
+</script>

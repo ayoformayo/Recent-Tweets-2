@@ -18,6 +18,15 @@ require 'logger'
 require 'sinatra'
 require "sinatra/reloader" if development?
 
+require 'twitter'
+
+Twitter.configure do |config|
+  config.consumer_key = 'CJmmCGT6B3pCDV46rC1YQ'
+  config.consumer_secret = 'Yo54cT6UhUeCQGoNhrqpqtvlhCK1SSZ0pRkBmiA'
+  config.oauth_token = '432781604-MMxsBN4FfLXiwa67nyoREWyaRPH4yAsQHjhDbCCQ'
+  config.oauth_token_secret = 'tQGtUJROHvJgv3t2WMO3vYLt7FxUdLEhYZT2YXHGbM'
+end
+
 require 'erb'
 
 # Some helper constants for path-centric logic
